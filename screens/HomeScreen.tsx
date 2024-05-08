@@ -35,6 +35,9 @@ function HomeScreen() {
 
         {/* upcoming carousel */}
         <MovieList title="Upcoming" data={upcoming} />
+
+        {/* top rated carousel */}
+        <MovieList title="Top Rated" data={topRated} />
       </ScrollView>
     </View>
   );

@@ -6,10 +6,12 @@ import { useNavigation } from '@react-navigation/native';
 
 var {width, height} = Dimensions.get('window')
 export default function TrendingMovie({data}: TrendingMovies) {
-  const navigation = useNavigation()
-  const handleClick = () => {
-    // navigation.navigate('Movie', item) 
+  const navigation = useNavigation<any>()
+
+  const handleClick = (item:any) => {
+    navigation.navigate('Movie', item as never) 
   }
+  
   return (
     <View className="mb-8">
         <Text className='text-white text-xl mx-4 mb-5'>Trending</Text>
@@ -30,7 +32,7 @@ export default function TrendingMovie({data}: TrendingMovies) {
 
 const MovieCard:React.FC<TrendingMovies> = ({item, handleClick}) => {
     return(
-        <TouchableWithoutFeedback onPress={handleClick}>
+        <TouchableWithoutFeedback onPress={() => handleClick(item)}>
             <Text className="text-white">
                <Image 
                 source={require('../assets/movie1.webp')} 
